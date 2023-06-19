@@ -2,7 +2,7 @@
 
 - node: v16.15.0
 - yarn: v1.22.19
-- elasticsearch: v8.8.1: `https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.8.1-windows-x86_64.zip`
+- elasticsearch: v8.8.1: [a link](https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.8.1-windows-x86_64.zip)
 - run `elasticsearch` locally `windows`:
 
 * In a terminal window, cd to the %ES_HOME% directory, for instance:

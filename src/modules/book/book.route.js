@@ -97,7 +97,7 @@ async function bookRoutes(server) {
           200: {
             type: "object",
             properties: {
-              result: { type: "string", example: "update" },
+              result: { type: "string", example: "create" },
               message: { type: "string", example: "success" },
             },
           },

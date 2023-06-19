@@ -20,10 +20,12 @@ export async function getList() {
     },
     { ignore: [400] }
   );
+
   const result = [];
   books.hits.hits.map((book) => {
     result.push(book._source);
   });
+
   return result;
 }
 
@@ -35,8 +37,10 @@ export async function getById(req) {
     },
     { ignore: [404] }
   );
+
   if (!book.found)
     throw new CustomError(`The book id: ${req.params.id} is not found`, 404);
+
   return book._source;
 }
 
@@ -48,6 +52,7 @@ export async function updateById(req) {
     description: req.body.description,
     price: req.body.price,
   };
+
   const book = await client.get(
     {
       index,
@@ -55,14 +60,16 @@ export async function updateById(req) {
     },
     { ignore: [404] }
   );
+
   if (!book.found)
     throw new CustomError(`The book id: ${req.params.id} is not found`, 404);
+
   const newBook = await client.update({
     index,
     id: req.params.id,
     doc: { ...book._source, ...bookDto },
   });
-  console.log(newBook.result);
+
   return { result: newBook.result, message: "success" };
 }
 
@@ -75,6 +82,7 @@ export async function create(req) {
     description: req.body.description,
     price: req.body.price,
   };
+
   const book = await client.get(
     {
       index,
@@ -82,15 +90,14 @@ export async function create(req) {
     },
     { ignore: [404] }
   );
-  if (book.found) throw new CustomError("The id of book is exist", 409);
-  const newBook = await client.index(
-    {
-      index,
-      id: req.body.id,
-      document: bookDto,
-    },
-    { ignore: [400] }
-  );
-  if (!newBook) throw new Error();
+
+  if (book.found) throw new CustomError("The id of book is existed", 409);
+
+  const newBook = await client.index({
+    index,
+    id: req.body.id,
+    document: bookDto,
+  });
+
   return { result: newBook.result, message: "success" };
 }

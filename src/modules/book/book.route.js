@@ -94,26 +94,11 @@ async function bookRoutes(server) {
           },
         },
         response: {
-          201: {
-            type: "array",
-            items: {
-              type: "object",
-              properties: {
-                id: { type: "string" },
-                title: { type: "string" },
-                author: { type: "string" },
-                publishedDate: { type: "string", format: "date" },
-                description: { type: "string" },
-                price: { type: "number" },
-              },
-              required: [
-                "id",
-                "title",
-                "author",
-                "publishedDate",
-                "description",
-                "price",
-              ],
+          200: {
+            type: "object",
+            properties: {
+              result: { type: "string", example: "update" },
+              message: { type: "string", example: "success" },
             },
           },
         },

@@ -9,11 +9,11 @@
   ![alt text](https://i.imgur.com/uG3H97y.png)
   run command `.\bin\elasticsearch -E xpack.security.enabled=false`
 
-- `git clone https://github.com/lclong1703/test-book-api.git`
+- Create project: `git clone https://github.com/lclong1703/test-book-api.git`
 
 ## Start project
 
-- Create `.env` from the `.env.example` and fulfill all environment variables
+- Create file `.env` from the file `.env.example` and fulfill all environment variables
 - add node_modules: `yarn install`
 - Start project with command `yarn start`
 

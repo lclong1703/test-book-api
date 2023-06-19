@@ -19,6 +19,6 @@
 - add node_modules: `yarn install`
 - Start project with command `yarn start`
 
-# Features
+# Feature
 
 ## use swagger check: http://localhost:3000/docs/
